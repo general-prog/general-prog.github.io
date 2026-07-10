@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Padel Plot Limited | New Padel Courts in Didcot, Oxfordshire</title>
+<meta name="description" content="Padel Plot Limited is opening new padel courts in Didcot, Oxfordshire — summer 2027. Two singles courts and one doubles court. Get in touch: general@padelplot.co.uk.">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23191A3D'/%3E%3Ctext x='30' y='45' font-family='Arial, sans-serif' font-weight='700' font-size='34' fill='%23F4F4F8' text-anchor='middle'%3EP%3C/text%3E%3Ccircle cx='48' cy='18' r='6' fill='%23FF5A4E'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Padel Plot Limited">
+<meta property="og:description" content="New padel courts opening in Didcot, Oxfordshire — summer 2027.">
+<meta property="og:image" content="og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Padel Plot Limited">
+<meta name="twitter:description" content="New padel courts opening in Didcot, Oxfordshire — summer 2027.">
+<meta name="twitter:image" content="og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --indigo:#191A3D;
+    --indigo-deep:#121330;
+    --lime:#D4FF4F;
+    --coral:#FF5A4E;
+    --white:#FFFFFF;
+    --off-white:#F4F4F8;
+    --slate:#5B6B74;
+    --muted:#9AA0B0;
+    --border:rgba(238,238,243,0.14);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{height:100%;}
+
+  body{
+    background:var(--indigo);
+    color:var(--off-white);
+    font-family:'Work Sans',sans-serif;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    position:relative;
+  }
+
+  /* ---------- Ambient colour drift ---------- */
+  .field{
+    position:absolute;
+    inset:0;
+    z-index:0;
+    overflow:hidden;
+  }
+
+  .blob-wrap{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    transition:transform 0.8s cubic-bezier(0.22,1,0.36,1);
+    will-change:transform;
+  }
+
+  .blob{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(90px);
+    mix-blend-mode:screen;
+    will-change:transform, opacity;
+  }
+
+  .blob--1{ /* large lime, top-left origin */
+    width:46vw; height:46vw;
+    top:-14%; left:-10%;
+    background:var(--lime);
+    animation:orbit1 21s ease-in-out infinite alternate;
+  }
+
+  .blob--2{ /* large coral, bottom-right origin */
+    width:40vw; height:40vw;
+    bottom:-14%; right:-10%;
+    background:var(--coral);
+    animation:orbit2 26s ease-in-out infinite alternate;
+  }
+
+  .blob--3{ /* mid coral, top-right */
+    width:24vw; height:24vw;
+    top:6%; right:8%;
+    background:var(--coral);
+    animation:orbit3 17s ease-in-out infinite alternate;
+  }
+
+  .blob--4{ /* mid lime, bottom-left */
+    width:22vw; height:22vw;
+    bottom:8%; left:6%;
+    background:var(--lime);
+    animation:orbit4 24s ease-in-out infinite alternate;
+  }
+
+  .blob--5{ /* small lime, dead centre-ish, the "pop" */
+    width:14vw; height:14vw;
+    top:38%; left:44%;
+    background:var(--lime);
+    animation:orbit5 15s ease-in-out infinite alternate;
+  }
+
+  .blob--6{ /* small coral, upper-left drifting far */
+    width:16vw; height:16vw;
+    top:16%; left:20%;
+    background:var(--coral);
+    animation:orbit6 29s ease-in-out infinite alternate;
+  }
+
+  @keyframes orbit1{
+    0%   { transform:translate(0,0)          scale(0.85); opacity:0.10; }
+    22%  { transform:translate(22vw,10vh)    scale(1.25); opacity:0.26; }
+    48%  { transform:translate(10vw,32vh)    scale(0.9);  opacity:0.13; }
+    74%  { transform:translate(30vw,4vh)     scale(1.15); opacity:0.22; }
+    100% { transform:translate(4vw,20vh)     scale(1.0);  opacity:0.17; }
+  }
+
+  @keyframes orbit2{
+    0%   { transform:translate(0,0)          scale(0.9);  opacity:0.09; }
+    28%  { transform:translate(-24vw,-14vh)  scale(1.3);  opacity:0.24; }
+    55%  { transform:translate(-6vw,-34vh)   scale(0.85); opacity:0.12; }
+    80%  { transform:translate(-28vw,-6vh)   scale(1.1);  opacity:0.20; }
+    100% { transform:translate(-8vw,-22vh)   scale(1.0);  opacity:0.15; }
+  }
+
+  @keyframes orbit3{
+    0%   { transform:translate(0,0)         scale(0.7);  opacity:0.08; }
+    35%  { transform:translate(-18vw,20vh)  scale(1.35); opacity:0.28; }
+    68%  { transform:translate(-30vw,4vh)   scale(0.8);  opacity:0.11; }
+    100% { transform:translate(-10vw,26vh)  scale(1.15); opacity:0.21; }
+  }
+
+  @keyframes orbit4{
+    0%   { transform:translate(0,0)        scale(0.75); opacity:0.07; }
+    40%  { transform:translate(20vw,-22vh) scale(1.3);  opacity:0.25; }
+    72%  { transform:translate(34vw,-4vh)  scale(0.85); opacity:0.12; }
+    100% { transform:translate(12vw,-28vh) scale(1.1);  opacity:0.19; }
+  }
+
+  @keyframes orbit5{
+    0%   { transform:translate(0,0)          scale(0.4); opacity:0.05; }
+    25%  { transform:translate(-16vw,-18vh)  scale(1.4); opacity:0.30; }
+    50%  { transform:translate(14vw,-10vh)   scale(0.5); opacity:0.06; }
+    75%  { transform:translate(-8vw,16vh)    scale(1.2); opacity:0.24; }
+    100% { transform:translate(18vw,12vh)    scale(0.6); opacity:0.10; }
+  }
+
+  @keyframes orbit6{
+    0%   { transform:translate(0,0)        scale(0.6); opacity:0.05; }
+    30%  { transform:translate(24vw,14vh)  scale(1.2); opacity:0.20; }
+    60%  { transform:translate(6vw,-20vh)  scale(0.7); opacity:0.08; }
+    100% { transform:translate(-14vw,8vh)  scale(1.05);opacity:0.16; }
+  }
+
+  .vignette{
+    position:absolute;
+    inset:0;
+    z-index:1;
+    background:radial-gradient(ellipse at center, rgba(25,26,61,0) 0%, rgba(18,19,48,0.55) 68%, rgba(18,19,48,0.9) 100%);
+    pointer-events:none;
+  }
+
+  .frame{
+    position:fixed;
+    inset:14px;
+    border:1px solid rgba(244,244,248,0.14);
+    z-index:3;
+    pointer-events:none;
+  }
+
+  /* ---------- Content ---------- */
+  .stage{
+    position:relative;
+    z-index:2;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    padding:28px 24px;
+    max-width:480px;
+  }
+
+  @keyframes fadeUp{
+    from{ opacity:0; transform:translateY(14px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+
+  .eyebrow{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:9.5px;
+    font-weight:500;
+    letter-spacing:0.3em;
+    text-transform:uppercase;
+    color:var(--lime);
+    margin-bottom:25px;
+    opacity:0;
+    animation:fadeUp 0.8s cubic-bezier(0.22,1,0.36,1) 0.05s both;
+  }
+
+  .logo-mark{
+    width:55px;
+    height:55px;
+    margin:0;
+    opacity:0;
+    animation:fadeUp 0.8s cubic-bezier(0.22,1,0.36,1) 0.2s both;
+  }
+
+  .logo-mark svg{
+    width:100%;
+    height:100%;
+    display:block;
+  }
+
+  .wordmark{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:0.32em;
+    margin-top:20px;
+    font-family:'Space Grotesk',sans-serif;
+    font-size:clamp(33px, 5.8vw, 53px);
+    font-weight:600;
+    letter-spacing:0.02em;
+    line-height:1;
+    color:var(--white);
+    opacity:0;
+    animation:fadeUp 0.8s cubic-bezier(0.22,1,0.36,1) 0.36s both;
+  }
+
+  .tagline{
+    margin-top:15px;
+    font-weight:300;
+    font-size:13.5px;
+    line-height:1.6;
+    color:var(--muted);
+    max-width:340px;
+    opacity:0;
+    animation:fadeUp 0.8s cubic-bezier(0.22,1,0.36,1) 0.46s both;
+  }
+
+  .divider{
+    width:100%;
+    max-width:280px;
+    height:1px;
+    background:var(--border);
+    margin:28px 0;
+    opacity:0;
+    animation:fadeUp 0.8s cubic-bezier(0.22,1,0.36,1) 0.56s both;
+  }
+
+  .details{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:9px;
+    font-family:'Work Sans',sans-serif;
+    font-size:11.5px;
+    opacity:0;
+    animation:fadeUp 0.8s cubic-bezier(0.22,1,0.36,1) 0.64s both;
+  }
+
+  .details .row{
+    display:flex;
+    align-items:baseline;
+    gap:9px;
+  }
+
+  .details .label{
+    font-family:'Space Grotesk',sans-serif;
+    color:var(--lime);
+    font-size:9.5px;
+    font-weight:500;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    white-space:nowrap;
+  }
+
+  .details .value{
+    color:var(--off-white);
+    font-weight:400;
+    white-space:nowrap;
+  }
+
+  .contact{
+    margin-top:28px;
+    opacity:0;
+    animation:fadeUp 0.8s cubic-bezier(0.22,1,0.36,1) 0.76s both;
+  }
+
+  .contact a{
+    color:var(--off-white);
+    text-decoration:none;
+    font-family:'Work Sans',sans-serif;
+    font-size:12px;
+    letter-spacing:0.01em;
+    border-bottom:1px solid var(--border);
+    padding-bottom:3px;
+    transition:border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .contact a:hover,
+  .contact a:focus-visible{
+    color:var(--coral);
+    border-color:var(--coral);
+  }
+
+  footer{
+    position:absolute;
+    bottom:24px;
+    left:0;
+    right:0;
+    z-index:2;
+    text-align:center;
+    font-family:'Space Grotesk',sans-serif;
+    font-size:9px;
+    font-weight:500;
+    letter-spacing:0.1em;
+    color:rgba(244,244,248,0.3);
+  }
+
+  @media (max-width:480px){
+    .wordmark{font-size:32px;}
+    .details .row{flex-direction:column;align-items:center;gap:2px;}
+    .blob--1,.blob--2{width:80vw;height:80vw;}
+    .blob--3,.blob--4{width:50vw;height:50vw;}
+    .blob--5,.blob--6{width:34vw;height:34vw;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .blob{animation:none;}
+    .blob-wrap{transition:none;}
+    .logo-mark,.eyebrow,.wordmark,.tagline,.divider,.details,.contact{
+      animation:none;
+      opacity:1;
+      transform:none;
+    }
+  }
+
+  :focus-visible{
+    outline:1px solid var(--lime);
+    outline-offset:3px;
+  }
+</style>
+</head>
+<body>
+
+  <div class="field" aria-hidden="true">
+    <div class="blob-wrap" data-depth="0.55"><div class="blob blob--1"></div></div>
+    <div class="blob-wrap" data-depth="0.7"><div class="blob blob--2"></div></div>
+    <div class="blob-wrap" data-depth="0.9"><div class="blob blob--3"></div></div>
+    <div class="blob-wrap" data-depth="0.85"><div class="blob blob--4"></div></div>
+    <div class="blob-wrap" data-depth="1.2"><div class="blob blob--5"></div></div>
+    <div class="blob-wrap" data-depth="1.05"><div class="blob blob--6"></div></div>
+  </div>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="frame" aria-hidden="true"></div>
+
+  <main class="stage">
+    <p class="eyebrow">Coming soon</p>
+    <div class="logo-mark" aria-hidden="true">
+      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="32" fill="none" stroke="#D4FF4F" stroke-width="9"/>
+        <circle cx="79" cy="79" r="14" fill="#FF5A4E"/>
+      </svg>
+    </div>
+    <h1 class="wordmark"><span>PADEL</span><span>PLOT</span></h1>
+    <p class="tagline">New padel courts for the M4/A34 corridor. Our first site is taking shape in Didcot, Oxfordshire.</p>
+
+    <div class="divider"></div>
+
+    <div class="details">
+      <div class="row"><span class="label">Location</span><span class="value">Didcot, Oxfordshire</span></div>
+      <div class="row"><span class="label">Courts</span><span class="value">2 singles &middot; 1 doubles</span></div>
+      <div class="row"><span class="label">Opening</span><span class="value">Summer 2027</span></div>
+    </div>
+
+    <div class="contact">
+      <a href="mailto:general@padelplot.co.uk">general@padelplot.co.uk</a>
+    </div>
+  </main>
+
+  <footer>&copy; 2026 PADEL PLOT LIMITED</footer>
+
+  <script>
+    (function(){
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var isTouch = window.matchMedia && window.matchMedia('(hover: none)').matches;
+      if (reduce || isTouch) return;
+
+      var wraps = document.querySelectorAll('.blob-wrap');
+      var maxPx = 16;
+      var raf = null;
+
+      window.addEventListener('mousemove', function(e){
+        if (raf) return;
+        raf = requestAnimationFrame(function(){
+          var nx = (e.clientX / window.innerWidth - 0.5) * 2;
+          var ny = (e.clientY / window.innerHeight - 0.5) * 2;
+          wraps.forEach(function(w){
+            var depth = parseFloat(w.dataset.depth) || 0.6;
+            var tx = -nx * maxPx * depth;
+            var ty = -ny * maxPx * depth;
+            w.style.transform = 'translate(' + tx.toFixed(1) + 'px,' + ty.toFixed(1) + 'px)';
+          });
+          raf = null;
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
